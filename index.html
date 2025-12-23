@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 180px;
+    }
+    .cartao{
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background-color: rgb(0, 172, 172);
+        padding: 20px;
+        width: 500px;
+        border-radius: 5px;
+        box-shadow: 0px 0px 4px 2px rgb(90, 255, 255);
+    }
+    .about{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .dark-mode{
+        background-color: black;
+    }
+    .light-mode{
+        background-color: white;
+    }
+
+  </style>
+</head>
+<body>
+   <div id="cartaos">
+
+
+   </div>
+    <script>
+        const usuario = {
+            "nome": "Desenvolvedor Destemido",
+            "bio": "Explorando os segredos do JavaScript e as artes da Bruxa da Avareza.",
+            "avatar": "https://api.dicebear.com/7.x/bottts/svg?seed=Echidna", 
+            "preferencias": {
+                "tema": "light", 
+                "exibirBio": true
+            }
+        };
+
+      
+        cartaos.innerHTML += `
+        <div class="cartao">
+            <img src="${usuario.avatar}" width="150px" alt="">
+            <div class="about">
+                <h2>${usuario.nome}</h2>
+                <p id="paragrafo">${usuario.bio}</p> 
+            </div>
+        </div>
+        `;
+
+        
+        if (usuario.preferencias.tema === "dark") {
+            document.body.classList.add("dark-mode");
+        } else {
+            
+            document.body.classList.remove("dark-mode");
+            document.body.classList.add("light-mode");
+        }
+
+        
+        const p = document.getElementById("paragrafo");
+        if (usuario.preferencias.exibirBio !== true) {
+            p.style.display = "none";
+        }
+
+   
+    </script>
+</body>
+</html>
